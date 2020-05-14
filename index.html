@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Big Font">
+    <meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+
+    <title>Big Font</title>
+
+    <style type="text/css">
+
+        * {
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: ;
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .container {
+            width: 980px;
+            margin: 0 auto;
+        }
+
+        label {
+            opacity: .7;
+            margin-bottom: 4px;
+            display: inline-block;
+        }
+
+        .input-textarea {
+            display: block;
+            resize: none;
+            width: 100%;
+        }
+
+        .text-container {
+            margin-top: 32px;
+            width: 100%;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .position-relative {
+            position: relative;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div>
+
+    <div class="container">
+
+        <h1 class="text-center">Big Font</h1>
+
+        <div>
+            <div class="overflow-hidden">
+
+                <label>Input</label>
+                
+                <div class="float-right">
+                  <input type="range" id="fontSizeRange"
+                         min="10" max="100" value="42">
+                  <label for="volume" class="position-relative" style="top: -3px;">Font size</label>
+                </div>
+
+            </div>
+            
+            <textarea class="input-textarea" id="inputTextearea" rows="5">ἓν οἶδα ὅτι οὐδὲν οἶδα
+            </textarea>
+        </div>
+
+        <div class="text-container" id="textContainer"></div>
+
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+
+    var inputTextearea = document.getElementById('inputTextearea');
+    var textContainer = document.getElementById('textContainer');
+    var fontSizeRange = document.getElementById('fontSizeRange');
+
+    textContainer.innerHTML = inputTextearea.value
+
+    var fontSize = 42;
+
+    textContainer.style.fontSize = fontSize + 'px';
+
+    fontSizeRange.addEventListener('input', function(){
+        fontSize = fontSizeRange.value;
+
+        textContainer.style.fontSize = fontSize + 'px';
+
+    })
+
+    inputTextearea.addEventListener('keypress', function (e) {
+
+        textContainer.innerHTML = inputTextearea.value
+        
+    })
+    
+
+
+</script>
+
+</body>
+</html>
